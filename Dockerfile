@@ -47,6 +47,13 @@ RUN cd /tmp \
   && mv cnijfilter2-6.80-1-deb/packages/cnijfilter2_6.80-1_${ARCH}.deb cnijfilter2_6.80-1.deb \
   && apt install ./cnijfilter2_6.80-1.deb
 
+RUN cd /tmp \
+  && curl https://ftp.hp.com/pub/softlib/software13/printers/SS/SL-C4010ND/uld_V1.00.39_01.17.tar.gz -o uld.tar.gz \
+  && tar -xvf uld.tar.gz \
+  && cd uld \
+  && echo exit 0 > ./noarch/pre_install.sh \
+  && echo "y" | ./install-printer.sh 
+
 COPY rootfs /
 
 # Add user and disable sudo password checking
