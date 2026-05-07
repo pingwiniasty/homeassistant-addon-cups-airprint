@@ -1,3 +1,6 @@
+## v1.8
+- Added Samsung M262x-M282x drivers
+
 ## v1.7
 
 - Fix the issue with "ulimit" size and permissions
